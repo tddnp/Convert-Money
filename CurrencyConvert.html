@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+<input type="text" id="nhap-tien">
+<select id="from">
+    <option value="23000">VND</option>
+    <option value="1">USD</option>
+    <option value="0.85">EURO</option>
+</select>
+<select id="to">
+    <option value="23000">VND</option>
+    <option value="1">USD</option>
+    <option value="0.85">EURO</option>
+</select>
+<button onclick="convert()">Đổi</button>
+<p id="ket-qua"></p>
+</body>
+<script>
+    function convert() {
+        let money = document.getElementById('nhap-tien').value;
+        let from  = document.getElementById('from').value;
+        let to  = document.getElementById('to').value;
+        if(money < 0){
+            alert("Số tiền đổi phải lớn hơn 0")
+        }else{
+            let result =  money * to/from;
+            document.getElementById('ket-qua').innerText = result.toFixed(3);
+        }
+    }
+</script>
+</html>
+<!--
+    B1: Làm giao diện html cơ bản
+    B2: Tạo ra hàm chuyển đổi tiền
+    B3: Hiển thị ra kết quả
+    B4: Xác định thông tin cần biết - Hệ số quy đổi tiền tệ (1usd = 23000vd; 1usd = 0.85euro)
+    B5: Công thức amount -> result => result = amount * to/from;
+                    from    to
+-->
